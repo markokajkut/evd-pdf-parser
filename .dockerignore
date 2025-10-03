@@ -1,0 +1,6 @@
+.venv
+examples
+src/__pycache__
+src/testing.ipynb
+.python-version
+README.md
