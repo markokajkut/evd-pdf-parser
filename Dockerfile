@@ -103,4 +103,4 @@ COPY --chown=appuser:appuser . .
 EXPOSE 7860
 
 # Command to run the app
-CMD ["streamlit", "run", "src/main.py", "--server.port=7860", "--server.address=0.0.0.0", "--server.enableXsrfProtection false"]
+CMD ["streamlit", "run", "src/main.py", "--server.port=7860", "--server.address=0.0.0.0", "--server.enableXsrfProtection=false"]
