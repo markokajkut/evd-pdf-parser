@@ -23,7 +23,7 @@ RUN pip install --upgrade pip \
 
 ENV HOME=/app
 
-RUN mkdir -p /app/.streamlit
+RUN mkdir -p /app/.streamlit && chmod -R 777 /app/.streamlit
 
 # Copy application code
 COPY . .
