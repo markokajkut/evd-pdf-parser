@@ -21,6 +21,10 @@ COPY requirements.txt .
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
+ENV HOME=/app
+
+RUN mkdir -p /app/.streamlit
+
 # Copy application code
 COPY . .
 
@@ -31,7 +35,9 @@ EXPOSE 7860
 ENV STREAMLIT_SERVER_HEADLESS=true \
     STREAMLIT_SERVER_PORT=7860 \
     STREAMLIT_SERVER_ENABLECORS=false \
-    STREAMLIT_SERVER_ENABLEXSRSFPROTECTION=false
+    STREAMLIT_SERVER_ENABLEXSRSFPROTECTION=false \
+    STREAMLIT_BROWSER_GATHERUSAGESTATS=false
+
 
 # Command to run the app
 CMD ["streamlit", "run", "src/main.py", "--server.port=7860", "--server.address=0.0.0.0"]

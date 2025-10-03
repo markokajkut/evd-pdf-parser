@@ -19,12 +19,12 @@ warnings.filterwarnings(
 st.set_page_config(page_title="PDF Table Extractor", layout="wide")
 
 # Authentication - development
-# USERNAME = st.secrets['authentication']['username']
-# PASSWORD = st.secrets['authentication']['password']
+USERNAME = st.secrets['authentication']['username']
+PASSWORD = st.secrets['authentication']['password']
 
 # Authentication - production
-USERNAME = os.getenv("USERNAME")
-PASSWORD = os.getenv("PASSWORD")
+# USERNAME = os.getenv("USERNAME")
+# PASSWORD = os.getenv("PASSWORD")
 
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
