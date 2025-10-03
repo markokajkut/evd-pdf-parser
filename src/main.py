@@ -3,7 +3,10 @@ import pandas as pd
 import os
 import warnings
 from pathlib import Path
+from dotenv import load_dotenv
 from pdf_parser import *
+
+load_dotenv()
 
 pd.options.display.float_format = "{:.3f}".format
 
@@ -15,9 +18,13 @@ warnings.filterwarnings(
 # ---- Streamlit UI ----
 st.set_page_config(page_title="PDF Table Extractor", layout="wide")
 
-# Authentication (simple demo version)
-USERNAME = st.secrets['authentication']['username']
-PASSWORD = st.secrets['authentication']['password']
+# Authentication - development
+# USERNAME = st.secrets['authentication']['username']
+# PASSWORD = st.secrets['authentication']['password']
+
+# Authentication - production
+USERNAME = os.getenv("USERNAME")
+PASSWORD = os.getenv("PASSWORD")
 
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
